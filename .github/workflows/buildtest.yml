@@ -36,7 +36,7 @@ jobs:
         pytest --cov=StockPioneer --cov-report=xml --rootdir=./StockPioneer tests
     - name: upload codecov
       run: |
-        pip install pytest python-codacy-coverage
+        pip install pytest codacy-coverage
         export CODACY_PROJECT_TOKEN=${{ secrets.codecay_token }}
         python-codacy-coverage -r coverage.xml
     - name: Send Notify
