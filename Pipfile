@@ -5,10 +5,15 @@ verify_ssl = true
 
 [dev-packages]
 pylint = "*"
+autopep8 = "*"
+pytest-cov = "*"
+pytest = "*"
 
 [packages]
 python-telegram-bot = "*"
 coloredlogs = "*"
+yfinance = "*"
+lxml = "*"
 
 [requires]
 python_version = "3.7"
