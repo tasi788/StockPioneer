@@ -2,12 +2,8 @@ import logging
 import coloredlogs
 
 import telegram.bot
-from telegram import user
-from telegram.error import *
-from telegram.utils.request import Request
-from telegram.ext.dispatcher import run_async
-from telegram.ext import Updater, CommandHandler, MessageHandler, RegexHandler
-from telegram.ext import Filters, messagequeue, CallbackQueryHandler
+from telegram.ext import messagequeue
+from telegram.error import BadRequest, TimedOut, Unauthorized
 
 from . import config
 
@@ -28,8 +24,8 @@ class MQBot(telegram.bot.Bot):
     def __del__(self):
         try:
             self._msg_queue.stop()
-        except:
-            pass
+        except Exception as e:
+            logger.exception(e)
         super(MQBot, self).__del__()
 
     @messagequeue.queuedmessage

@@ -1,11 +1,8 @@
 import logging
 import coloredlogs
 
-import telegram.bot
-from telegram import user
 from telegram.error import *
 from telegram.utils.request import Request
-from telegram.ext.dispatcher import run_async
 from telegram.ext import Updater, CommandHandler, MessageHandler, RegexHandler
 from telegram.ext import Filters, messagequeue, CallbackQueryHandler
 
@@ -14,6 +11,7 @@ from .command import *
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')
+
 
 class handle:
     def __init__(self):
@@ -36,4 +34,3 @@ class handle:
         except KeyboardInterrupt:
             updater.stop()
             updater.is_idle = False
-

@@ -1,10 +1,8 @@
-import logging
-import coloredlogs
-
 from configparser import ConfigParser
 
 configure = ConfigParser()
 configure.read('config.ini')
+
 
 def get(key, value):
     """
