@@ -4,3 +4,7 @@
 config.ini
 
 __pycache__
+
+coverage.xml
+
+.coverage
