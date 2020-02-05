@@ -4,4 +4,4 @@ services:
         build: .
         restart: unless-stopped
         volumes: 
-            - ./StockPioneer/:/app
+            - ./:/app
