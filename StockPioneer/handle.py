@@ -4,10 +4,10 @@ import coloredlogs
 from telegram.error import *
 from telegram.utils.request import Request
 from telegram.ext import Updater, CommandHandler, MessageHandler, RegexHandler
-from telegram.ext import Filters, messagequeue, CallbackQueryHandler
+from telegram.ext import Filters, messagequeue, InlineQueryHandler
 
 from .plugins import config, mq
-from .command import *
+from .command import ping, stock
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='INFO')
@@ -26,7 +26,9 @@ class handle:
         bot = mq.MQBot(token, request=request, mqueue=queue)
         updater = Updater(bot=bot, use_context=True)
         dp = updater.dispatcher
+
         dp.add_handler(CommandHandler('ping', ping))
+        dp.add_handler(InlineQueryHandler(stock))
 
         logger.info(bot.get_me().first_name)
         try:
