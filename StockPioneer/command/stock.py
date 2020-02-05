@@ -7,6 +7,7 @@ from telegram import InlineQueryResultArticle, InputTextMessageContent, ParseMod
 import yfinance as yf
 
 
+@run_async
 def stock(update: Update, context: CallbackContext):
     """
     response stock info
